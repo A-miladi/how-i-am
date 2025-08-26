@@ -27,14 +27,15 @@ const Hero = () => {
                   clean architecture and optimal performance.
                 </p>
                 <div className="mb-8">
-                  <h2 className="mb-3 text-lg font-semibold text-dark dark:text-white">
+                  <h2 className="my-3 text-lg font-semibold text-dark dark:text-white">
                     Core Technologies:
                   </h2>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
                     {[
                       "React",
                       "Next.js",
                       "TypeScript",
+                      "JavaScript",
                       "Node.js",
                       "Tailwind CSS",
                       "MongoDB",
@@ -46,7 +47,7 @@ const Hero = () => {
                     ].map((tech, index) => (
                       <span
                         key={index}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-sm text-primary dark:bg-primary/20"
+                        className=" flex items-center justify-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary dark:bg-primary/20"
                       >
                         {tech}
                       </span>

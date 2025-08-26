@@ -1,55 +1,90 @@
+"use client";
 import { Brand } from "@/types/brand";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const brandsData: Brand[] = [
   {
     id: 1,
-    name: "UIdeck",
-    href: "https://uideck.com",
-    image: "/images/brands/uideck.svg",
+    name: "React",
+    href: "https://reactjs.org",
+    image: "/images/brands/react.svg",
   },
   {
     id: 2,
-    name: "Tailgrids",
-    href: "https://tailgrids.com",
-    image: "/images/brands/tailgrids.svg",
+    name: "Next.js",
+    href: "https://nextjs.org",
+    image: "/images/brands/nextjs-icon.svg",
   },
   {
     id: 3,
-    name: "Lineicons",
-    href: "https://lineicons.com",
-    image: "/images/brands/lineicons.svg",
+    name: "TypeScript",
+    href: "https://www.typescriptlang.org",
+    image: "/images/brands/typescript.svg",
   },
   {
     id: 4,
-    name: "GrayGrids",
-    href: "https://graygrids.com",
-    image: "/images/brands/graygrids.svg",
+    name: "Node.js",
+    href: "https://nodejs.org",
+    image: "/images/brands/nodejs-icon.svg",
   },
   {
     id: 5,
-    name: "TailAdmin",
-    href: "https://tailadmin.com",
-    image: "/images/brands/tailadmin.svg",
+    name: "Tailwind CSS",
+    href: "https://tailwindcss.com",
+    image: "/images/brands/tailwindcss-icon.svg",
+  },
+  {
+    id: 6,
+    name: "MongoDB",
+    href: "https://www.mongodb.com",
+    image: "/images/brands/mongodb-icon.svg",
+  },
+  {
+    id: 7,
+    name: "Java Script",
+    href: "https://reactnative.dev",
+    image: "/images/brands/javascript.svg",
+  },
+  {
+    id: 8,
+    name: "Python",
+    href: "https://www.python.org",
+    image: "/images/brands/python.svg",
+  },
+  {
+    id: 9,
+    name: "NestJS",
+    href: "https://nestjs.com",
+    image: "/images/brands/nestjs.svg",
+  },
+  {
+    id: 10,
+    name: "Redux",
+    href: "https://redux.js.org",
+    image: "/images/brands/redux.svg",
   },
 ];
 
 const Brands = () => {
+  // Duplicate brands for seamless looping
+  const loopedBrands = [...brandsData, ...brandsData];
+
   return (
     <section className="pt-16">
       <div className="container">
-        <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
-            <div
-              className="wow fadeInUp flex flex-wrap items-center justify-center rounded-md bg-dark py-8 px-8 dark:bg-primary dark:bg-opacity-5 sm:px-10 md:py-[40px] md:px-[50px] xl:p-[50px] 2xl:py-[60px] 2xl:px-[70px]"
-              data-wow-delay=".1s
-              "
-            >
-              {brandsData.map((brand) => (
-                <SingleBrand key={brand.id} brand={brand} />
-              ))}
-            </div>
-          </div>
+        <div className="relative w-full overflow-hidden rounded-md bg-opacity-70 py-8 backdrop-blur-sm dark:bg-dark dark:bg-opacity-5">
+          <motion.div
+            className="flex w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          >
+            {loopedBrands.map((brand, index) => (
+              <SingleBrand key={index} brand={brand} />
+            ))}
+          </motion.div>
+          <div className="absolute left-0 top-0 h-full w-[45%] bg-gradient-to-r from-black to-transparent" />
+          <div className="absolute right-0 top-0 h-full w-[45%] bg-gradient-to-l from-black to-transparent" />
         </div>
       </div>
     </section>
@@ -62,15 +97,26 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
   const { href, image, name } = brand;
 
   return (
-    <div className="mx-3 flex w-full max-w-[160px] items-center justify-center py-[15px] sm:mx-4 lg:max-w-[130px] xl:mx-6 xl:max-w-[150px] 2xl:mx-8 2xl:max-w-[160px]">
+    <motion.div
+      className="mx-3 flex w-[120px] items-center justify-center py-4 sm:mx-4 lg:mx-6 xl:mx-8"
+      whileHover={{ scale: 1.2, rotateY: 15 }}
+      animate={{
+        filter: ["grayscale(0%)", "grayscale(100%)", "grayscale(0%)"],
+      }}
+      transition={{
+        filter: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+        scale: { type: "spring", stiffness: 300 },
+        rotateY: { type: "spring", stiffness: 300 },
+      }}
+    >
       <a
         href={href}
         target="_blank"
         rel="nofollow noreferrer"
-        className="relative h-10 w-full opacity-70 grayscale transition hover:opacity-100 hover:grayscale-0 dark:opacity-60 dark:hover:opacity-100"
+        className="relative h-20 w-full opacity-60 hover:opacity-100 dark:opacity-60 dark:hover:opacity-100"
       >
-        <Image src={image} alt={name} fill />
+        <Image src={image} alt={name} fill className="object-contain" />
       </a>
-    </div>
+    </motion.div>
   );
 };
