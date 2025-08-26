@@ -1,90 +1,47 @@
-import { Menu } from "@/types/menu";
-
-const menuData: Menu[] = [
+export const menu = [
   {
-    id: 1,
-    title: "Home",
-    path: "/",
-    newTab: false,
-  },
-  {
-    id: 2,
     title: "Experience",
-    path: "/#experience",
-    newTab: false,
+    description: "Professional journey",
+    link: "/experience",
+    submenu: [
+      { title: "CMS Project", link: "/experience/cms" },
+      { title: "Omran Hesar", link: "/experience/omran-hesar" },
+      { title: "Shift Management", link: "/experience/shift-management" },
+      { title: "Restaurant System", link: "/experience/restaurant" },
+      { title: "AI Agent Projects", link: "/experience/ai-projects" },
+      { title: "Mobile Development", link: "/experience/mobile" },
+    ],
   },
   {
-    id: 3,
     title: "Skills",
-    path: "/#skills",
-    newTab: false,
+    description: "Technologies & tools",
+    link: "/skills",
+    submenu: [
+      { title: "Frontend", link: "/skills/frontend" },
+      { title: "Backend", link: "/skills/backend" },
+      { title: "Mobile", link: "/skills/mobile" },
+      { title: "Tools", link: "/skills/tools" },
+    ],
   },
   {
-    id: 4,
     title: "Projects",
-    path: "/#projects",
-    newTab: false,
+    description: "Portfolio showcase",
+    link: "/projects",
+    submenu: [
+      { title: "Web Applications", link: "/projects/web" },
+      { title: "Mobile Apps", link: "/projects/mobile" },
+      { title: "AI Integration", link: "/projects/ai" },
+      { title: "Full-Stack", link: "/projects/fullstack" },
+    ],
   },
   {
-    id: 5,
-    title: "Contact",
-    path: "/#contact",
-    newTab: false,
+    title: "About",
+    description: "Get to know me",
+    link: "/about",
   },
-  // {
-  //   id: 4,
-  //   title: "Pages",
-  //   newTab: false,
-  //   submenu: [
-  //     {
-  //       id: 41,
-  //       title: "About Page",
-  //       path: "/about",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 42,
-  //       title: "Contact Page",
-  //       path: "/contact",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 43,
-  //       title: "Blog Grid Page",
-  //       path: "/blog",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 44,
-  //       title: "Blog Sidebar Page",
-  //       path: "/blog-sidebar",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 45,
-  //       title: "Blog Details Page",
-  //       path: "/blog-details",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 46,
-  //       title: "Sign In Page",
-  //       path: "/signin",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 47,
-  //       title: "Sign Up Page",
-  //       path: "/signup",
-  //       newTab: false,
-  //     },
-  //     {
-  //       id: 48,
-  //       title: "Error Page",
-  //       path: "/error",
-  //       newTab: false,
-  //     },
-  //   ],
-  // },
+  {
+    title: "Contact",
+    description: "Get in touch",
+    link: "/contact",
+  },
 ];
-export default menuData;
