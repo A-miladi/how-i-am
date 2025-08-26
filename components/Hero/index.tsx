@@ -10,7 +10,7 @@ const Hero = () => {
         className="relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="container">
-          <div className="-mx-4 flex w-full flex-row flex-wrap items-center justify-between">
+          <div className=" flex w-full flex-row flex-wrap items-center justify-between">
             <div className="w-full px-4 lg:w-1/2">
               <div
                 className="wow fadeInUp max-w-[700px] text-left"
@@ -54,16 +54,16 @@ const Hero = () => {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col items-start justify-start space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                <div className="flex items-center justify-between gap-2">
                   <Link
                     href="/contact"
-                    className="rounded-md bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    className="flex h-12 w-1/2 items-center justify-center  rounded-md border border-primary bg-primary text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/20"
                   >
                     Contact Me
                   </Link>
                   <Link
                     href="/projects"
-                    className="rounded-md bg-black/20 px-8 py-4 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
+                    className="flex h-12 w-1/2 items-center justify-center rounded-md border border-primary text-base font-semibold text-primary duration-300 ease-in-out hover:bg-primary/20"
                   >
                     View Portfolio
                   </Link>

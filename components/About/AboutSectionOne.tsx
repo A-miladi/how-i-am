@@ -9,8 +9,8 @@ const checkIcon = (
 
 const AboutSectionOne = () => {
   const List = ({ text }) => (
-    <p className="mb-5 flex items-center text-lg font-medium text-body-color">
-      <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+    <p className="mb-5 flex h-20 items-start border-b border-white border-opacity-15 pb-5 font-medium text-body-color">
+      <span className="mr-4 flex items-center justify-center rounded-md bg-primary bg-opacity-10 p-2 text-primary">
         {checkIcon}
       </span>
       {text}
@@ -25,7 +25,7 @@ const AboutSectionOne = () => {
             <div className="w-full px-4 lg:w-1/2">
               <SectionTitle
                 title="Professional Experience"
-                paragraph="Selected accomplishments across mid‑level full‑stack roles: shipping features, improving performance, and owning reliable releases."
+                paragraph="With over 3 years of experience in full-stack development, I have successfully delivered multiple projects using modern technologies like React, Next.js, Node.js, and TypeScript."
                 mb="44px"
               />
 
@@ -35,15 +35,17 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Built and maintained React/Next.js apps end‑to‑end" />
-                    <List text="Designed REST APIs and integrated external services" />
-                    <List text="Improved page performance and Lighthouse scores" />
+                    <List text="Developed responsive web applications with Next.js and React" />
+                    <List text="Built RESTful APIs with Node.js, NestJS, and MongoDB" />
+                    <List text="Implemented SEO optimization with SSR and SSG" />
+                    <List text="Created cross-platform mobile apps with React Native" />
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Implemented CI/CD and automated deployments" />
-                    <List text="Wrote tests for critical flows and edge cases" />
-                    <List text="Collaborated closely with designers and stakeholders" />
+                    <List text="Integrated AI features with Python and real-time APIs" />
+                    <List text="Managed state with Redux, Zustand, and Context API" />
+                    <List text="Designed scalable UI components with Tailwind CSS" />
+                    <List text="Collaborated with teams using Git and JIRA" />
                   </div>
                 </div>
               </div>
@@ -56,7 +58,7 @@ const AboutSectionOne = () => {
               >
                 <Image
                   src="/images/about/about-image.svg"
-                  alt="experience-illustration"
+                  alt="Full-stack developer experience"
                   fill
                   className="mx-auto max-w-full lg:mr-0"
                 />

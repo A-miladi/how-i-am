@@ -83,8 +83,8 @@ const Brands = () => {
               <SingleBrand key={index} brand={brand} />
             ))}
           </motion.div>
-          <div className="absolute left-0 top-0 h-full w-[45%] bg-gradient-to-r from-black to-transparent" />
-          <div className="absolute right-0 top-0 h-full w-[45%] bg-gradient-to-l from-black to-transparent" />
+          <div className="absolute left-0 top-0 h-full w-[45%] bg-gradient-to-r from-white to-transparent dark:from-black" />
+          <div className="absolute right-0 top-0 h-full w-[45%] bg-gradient-to-l from-white to-transparent dark:from-black" />
         </div>
       </div>
     </section>

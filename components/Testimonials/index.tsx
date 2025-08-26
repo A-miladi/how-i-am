@@ -1,36 +1,9 @@
+"use client";
+
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
-
-const testimonialData: Testimonial[] = [
-  {
-    id: 1,
-    name: "SaaS Admin Panel",
-    designation: "Next.js, Tailwind, Prisma, PostgreSQL",
-    content:
-      "Built a multi-tenant admin panel with authentication, role-based access, and CRUD workflows. Deployed on Vercel with CI/CD.",
-    image: "/images/testimonials/auth-01.png",
-    star: 5,
-  },
-  {
-    id: 2,
-    name: "E‑commerce Frontend",
-    designation: "React, Next.js, Stripe API",
-    content:
-      "Implemented product catalog, cart, and checkout with Stripe integration. Optimized for Core Web Vitals.",
-    image: "/images/testimonials/auth-02.png",
-    star: 5,
-  },
-  {
-    id: 3,
-    name: "Content Platform",
-    designation: "Next.js App Router, MDX, ISR",
-    content:
-      "Developed a content publishing flow using MDX and incremental static regeneration for fast, SEO-friendly pages.",
-    image: "/images/testimonials/auth-03.png",
-    star: 5,
-  },
-];
+import testimonialData from "./testimonialData";
 
 const Testimonials = () => {
   return (
@@ -39,18 +12,23 @@ const Testimonials = () => {
       className="relative z-10 bg-primary/[.03] py-16 md:py-20 lg:py-28"
     >
       <div className="container">
-        <SectionTitle
-          title="Selected Projects"
-          paragraph="A few hands-on builds that reflect my focus on usability, performance, and maintainability."
-          center
-        />
+        <div className="mb-8 flex flex-col gap-4">
+          <h2 className="border-l-2 border-primary pl-4 text-3xl font-extrabold">
+            Featured Projects
+          </h2>
+          <p className="w-1/2 pt-4 text-white text-opacity-40">
+            A collection of projects that showcase my expertise in full-stack
+            development, AI integration, and modern web technologies.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3 ">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {testimonialData.map((testimonial) => (
             <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
       </div>
+
       <div className="absolute right-0 top-5 z-[-1]">
         <svg
           width="238"

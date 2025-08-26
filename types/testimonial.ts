@@ -5,4 +5,6 @@ export type Testimonial = {
   content: string;
   image: string;
   star: number;
+  link?: string;
+  technologies?: string[];
 };
