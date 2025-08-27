@@ -45,7 +45,13 @@ const Header = () => {
           <div className="relative flex items-center justify-between">
             <div className="hidden w-60 px-4 md:flex">
               <a href="/" className="">
-                <Image width={50} height={50} alt="logo" src="/A-Logo.png" />
+                <Image
+                  width={50}
+                  height={50}
+                  alt="logo"
+                  src="/images/alogo.png"
+                  loading="lazy"
+                />
               </a>
             </div>
             <div className="my-2 flex w-full items-center justify-between md:my-0 md:px-2">
