@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import { menu } from "./menuData";
+import Image from "next/image";
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -42,11 +43,9 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="hidden w-60 max-w-full px-4 md:flex">
-              <a href="/" className="block w-full py-1">
-                <span className="text-xl font-bold text-dark dark:text-white">
-                  Alireza Miladi
-                </span>
+            <div className="hidden w-60 px-4 md:flex">
+              <a href="/" className="">
+                <Image width={50} height={50} alt="logo" src="/A-Logo.png" />
               </a>
             </div>
             <div className="my-2 flex w-full items-center justify-between md:my-0 md:px-2">

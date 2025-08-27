@@ -4,7 +4,7 @@ const experienceData = [
   {
     id: 1,
     period: "2025 - Present",
-    title: "Senior Full-Stack Developer",
+    title: "Mid-Level Full-Stack Developer",
     company: "Satia",
     icon: "🚀",
     description:
@@ -14,7 +14,7 @@ const experienceData = [
   {
     id: 2,
     period: "2024 - 2025",
-    title: "Senior Frontend Developer",
+    title: "Mid-Level Frontend Developer",
     company: "Misan",
     icon: "💻",
     description:
@@ -24,7 +24,7 @@ const experienceData = [
   {
     id: 3,
     period: "2023 - 2024",
-    title: "Senior Mobile Developer",
+    title: "Mid-Level Mobile Developer",
     company: "Uniqalpha",
     icon: "📱",
     description:
