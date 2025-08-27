@@ -9,14 +9,13 @@ const starIcon = (
 const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
   const { star, name, image, content, designation } = testimonial;
 
-  let ratingIcons = [];
-  for (let index = 0; index < star; index++) {
-    ratingIcons.push(
+  const ratingIcons: JSX.Element[] = Array(star)
+    .fill(null)
+    .map((_, index) => (
       <span key={index} className="text-yellow">
         {starIcon}
       </span>
-    );
-  }
+    ));
 
   return (
     <div className="w-full cursor-pointer transition-all duration-200 hover:scale-105">
