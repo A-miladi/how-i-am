@@ -38,7 +38,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
             <div className="mr-4">
               <div className="relative h-10 w-10 overflow-hidden rounded-full">
                 <Image
-                  src="/images/blog/1.png"
+                  src="/images/blog/me.png"
                   alt="author"
                   fill
                   loading="lazy"
