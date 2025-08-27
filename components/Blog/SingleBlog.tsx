@@ -6,7 +6,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   const { title, image, paragraph, author, tags, publishDate } = blog;
   return (
     <div
-      className="wow fadeInUp relative h-full cursor-pointer overflow-hidden rounded-md bg-white shadow-xl transition-all duration-200 hover:scale-105 hover:shadow-[rgba(1,1,1,0.5)] dark:bg-dark"
+      className="wow fadeInUp relative cursor-pointer overflow-hidden rounded-md bg-white shadow-xl transition-all duration-200 hover:scale-105 hover:shadow-[rgba(1,1,1,0.5)] dark:bg-dark max-md:mb-4"
       data-wow-delay=".1s"
     >
       <Link href="/" className="relative block h-[220px] w-full">
