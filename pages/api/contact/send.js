@@ -6,38 +6,18 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, subject, message } = req.body || {};
+    const { name, email, subject, message } = req.body;
 
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({ message: "Missing required fields" });
-    }
-
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      return res.status(500).json({ message: "Email service not configured" });
-    }
-
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: process.env.EMAIL_USER, // ایمیل شما
+        pass: process.env.EMAIL_PASS, // پسورد اپلیکیشن
       },
     });
 
-    // Verify transporter to surface auth/config issues early
-    try {
-      await transporter.verify();
-    } catch (verifyError) {
-      console.error("Nodemailer verify failed:", verifyError);
-      return res.status(500).json({
-        message: "Email service verification failed",
-        error: verifyError?.message || "Unknown verify error",
-      });
-    }
-
     const mailOptions = {
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
+      from: email,
       to: "alireza.miladi@yahoo.com",
       subject: `New Contact Form Submission: ${subject}`,
       html: `
@@ -49,7 +29,7 @@ export default async function handler(req, res) {
             <p><strong>Subject:</strong> ${subject}</p>
             <p><strong>Message:</strong></p>
             <div style="background: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
-              ${String(message).replace(/\n/g, "<br>")}
+              ${message.replace(/\n/g, "<br>")}
             </div>
           </div>
           <p style="color: #666; margin-top: 20px;">
@@ -61,12 +41,9 @@ export default async function handler(req, res) {
 
     await transporter.sendMail(mailOptions);
 
-    return res.status(200).json({ message: "Email sent successfully!" });
+    res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error("Email sending error:", error);
-    return res.status(500).json({
-      message: "Error sending email",
-      error: error?.message || "Unknown error",
-    });
+    res.status(500).json({ message: "Error sending email" });
   }
 }

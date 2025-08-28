@@ -1,5 +1,9 @@
+"use client";
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
+import { useEffect } from "react";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -8,8 +12,29 @@ const checkIcon = (
 );
 
 const AboutSectionOne = () => {
-  const List = ({ text }) => (
-    <p className="mb-5 flex h-20 items-start border-b border-white border-opacity-15 pb-5 font-medium text-body-color">
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const listItems = [
+    "Developed responsive web applications with Next.js and React",
+    "Built RESTful APIs with Node.js, NestJS, and MongoDB",
+    "Implemented SEO optimization with SSR and SSG",
+    "Created cross-platform mobile apps with React Native",
+    "Integrated AI features with Python and real-time APIs",
+    "Managed state with Redux, Zustand, and Context API",
+    "Designed scalable UI components with Tailwind CSS",
+    "Collaborated with teams using Git and JIRA",
+  ];
+
+  const List = ({ text, index }) => (
+    <p
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+      data-aos-delay={index * 100}
+      className="mb-5 flex h-20 items-start border-b border-white border-opacity-15 pb-5 font-medium text-body-color"
+    >
       <span className="mr-4 flex items-center justify-center rounded-md bg-primary bg-opacity-10 p-2 text-primary">
         {checkIcon}
       </span>
@@ -35,17 +60,15 @@ const AboutSectionOne = () => {
               >
                 <div className="mx-[-12px] flex flex-wrap">
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Developed responsive web applications with Next.js and React" />
-                    <List text="Built RESTful APIs with Node.js, NestJS, and MongoDB" />
-                    <List text="Implemented SEO optimization with SSR and SSG" />
-                    <List text="Created cross-platform mobile apps with React Native" />
+                    {listItems.slice(0, 4).map((item, index) => (
+                      <List key={index} text={item} index={index} />
+                    ))}
                   </div>
 
                   <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Integrated AI features with Python and real-time APIs" />
-                    <List text="Managed state with Redux, Zustand, and Context API" />
-                    <List text="Designed scalable UI components with Tailwind CSS" />
-                    <List text="Collaborated with teams using Git and JIRA" />
+                    {listItems.slice(4, 8).map((item, index) => (
+                      <List key={index + 4} text={item} index={index + 4} />
+                    ))}
                   </div>
                 </div>
               </div>

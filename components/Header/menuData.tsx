@@ -1,5 +1,10 @@
 export const menu = [
   {
+    title: "Blogs",
+    description: "blogs",
+    link: "/blog-sidebar",
+  },
+  {
     title: "Experience",
     description: "Professional journey",
     link: "/experience",

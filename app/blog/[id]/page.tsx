@@ -1,27 +1,35 @@
+"use client";
+import blogData from "@/components/Blog/blogData";
+import RelatedPost from "@/components/Blog/RelatedPost";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
+import NewsLatterBox from "@/components/Contact/NewsLatterBox";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 
-const BlogDetailsPage = () => {
+const BlogSidebarPage = () => {
+  const params = useParams() as { id: string };
+  const { id } = params;
+  const blog = blogData.find((item) => item.id === Number(id));
+  console.log(blog);
   return (
     <>
-      <section className="pt-[150px] pb-[120px]">
+      <section className="overflow-hidden pb-[120px] pt-[180px]">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap justify-center">
+          <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
-                  10 amazing sites to download stock photos & digital assets for
-                  free
+                  {blog?.title}
                 </h2>
                 <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
                   <div className="flex flex-wrap items-center">
-                    <div className="mr-10 mb-5 flex items-center">
+                    <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           <Image
-                            src="/images/blog/author-02.png"
-                            alt="author"
+                            src="/images/blog/me.png"
+                            alt="Alireza Miladi"
                             fill
                           />
                         </div>
@@ -29,7 +37,7 @@ const BlogDetailsPage = () => {
                       <div className="w-full">
                         <h4 className="mb-1 text-base font-medium text-body-color">
                           By
-                          <span>Musharof Chy</span>
+                          <span> Alireza Miladi</span>
                         </h4>
                       </div>
                     </div>
@@ -53,7 +61,7 @@ const BlogDetailsPage = () => {
                             <path d="M13.2637 3.3697H7.64754V2.58105C8.19721 2.43765 8.62738 1.91189 8.62738 1.31442C8.62738 0.597464 8.02992 0 7.28906 0C6.54821 0 5.95074 0.597464 5.95074 1.31442C5.95074 1.91189 6.35702 2.41376 6.93058 2.58105V3.3697H1.31442C0.597464 3.3697 0 3.96716 0 4.68412V13.2637C0 13.9807 0.597464 14.5781 1.31442 14.5781H13.2637C13.9807 14.5781 14.5781 13.9807 14.5781 13.2637V4.68412C14.5781 3.96716 13.9807 3.3697 13.2637 3.3697ZM6.6677 1.31442C6.6677 0.979841 6.93058 0.716957 7.28906 0.716957C7.62364 0.716957 7.91042 0.979841 7.91042 1.31442C7.91042 1.649 7.64754 1.91189 7.28906 1.91189C6.95448 1.91189 6.6677 1.6251 6.6677 1.31442ZM1.31442 4.08665H13.2637C13.5983 4.08665 13.8612 4.34954 13.8612 4.68412V6.45261H0.716957V4.68412C0.716957 4.34954 0.979841 4.08665 1.31442 4.08665ZM13.2637 13.8612H1.31442C0.979841 13.8612 0.716957 13.5983 0.716957 13.2637V7.16957H13.8612V13.2637C13.8612 13.5983 13.5983 13.8612 13.2637 13.8612Z" />
                           </svg>
                         </span>
-                        12 Jan 2024
+                        {blog?.publishDate}
                       </p>
                       <p className="mr-5 flex items-center text-base font-medium text-body-color">
                         <span className="mr-3">
@@ -68,7 +76,7 @@ const BlogDetailsPage = () => {
                             <path d="M11.0529 6.55322H4.69668C4.41543 6.55322 4.19043 6.77822 4.19043 7.05947C4.19043 7.34072 4.41543 7.56572 4.69668 7.56572H11.0811C11.3623 7.56572 11.5873 7.34072 11.5873 7.05947C11.5873 6.77822 11.3342 6.55322 11.0529 6.55322Z" />
                           </svg>
                         </span>
-                        50
+                        127
                       </p>
                       <p className="flex items-center text-base font-medium text-body-color">
                         <span className="mr-3">
@@ -82,84 +90,44 @@ const BlogDetailsPage = () => {
                             <path d="M19.7559 5.625C17.6934 2.375 14.1309 0.4375 10.2559 0.4375C6.38086 0.4375 2.81836 2.375 0.755859 5.625C0.630859 5.84375 0.630859 6.125 0.755859 6.34375C2.81836 9.59375 6.38086 11.5312 10.2559 11.5312C14.1309 11.5312 17.6934 9.59375 19.7559 6.34375C19.9121 6.125 19.9121 5.84375 19.7559 5.625ZM10.2559 10.4375C6.84961 10.4375 3.69336 8.78125 1.81836 5.96875C3.69336 3.1875 6.84961 1.53125 10.2559 1.53125C13.6621 1.53125 16.8184 3.1875 18.6934 5.96875C16.8184 8.78125 13.6621 10.4375 10.2559 10.4375Z" />
                           </svg>
                         </span>
-                        35
+                        89
                       </p>
                     </div>
                   </div>
                   <div className="mb-5">
                     <a
                       href="#0"
-                      className="inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold text-white"
+                      className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
                     >
-                      Design
+                      {blog?.tags[0]}
                     </a>
                   </div>
                 </div>
                 <div>
                   <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat.
+                    {blog?.paragraph}
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
                     <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                       <Image
-                        src="/images/blog/blog-details-02.jpg"
-                        alt="image"
+                        src={blog?.author.image as string}
+                        alt="Next.js Framework"
                         fill
-                        className="object-cover object-center"
+                        className="h-full w-full object-cover object-center"
+                        loading="lazy"
                       />
                     </div>
                   </div>
                   <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Quis enim lobortis scelerisque fermentum. Neque
-                    sodales ut etiam sit amet. Ligula ullamcorper
-                    <strong className="text-primary dark:text-white">
-                      malesuada
-                    </strong>
-                    proin libero nunc consequat interdum varius. Quam
-                    pellentesque nec nam aliquam sem et tortor consequat.
-                    Pellentesque adipiscing commodo elit at imperdiet.
+                    {blog?.multiDescription}
                   </p>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    Semper auctor neque vitae tempus quam pellentesque nec.
-                    <span className="text-primary underline dark:text-white">
-                      Amet dictum sit amet justo
-                    </span>
-                    donec enim diam. Varius sit amet mattis vulputate enim nulla
-                    aliquet porttitor. Odio pellentesque diam volutpat commodo
-                    sed.
-                  </p>
-                  <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
-                    Digital marketplace for Ui/Ux designers.
-                  </h3>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    consectetur adipiscing elit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    mattis vulputate cupidatat.
-                  </p>
-                  <ul className="mb-10 list-inside list-disc text-body-color">
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Consectetur adipiscing elit in voluptate velit.
-                    </li>
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Mattis vulputate cupidatat.
-                    </li>
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Vulputate enim nulla aliquet porttitor odio pellentesque
-                    </li>
-                    <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                      Ligula ullamcorper malesuada proin
-                    </li>
-                  </ul>
+
                   <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
                     <p className="text-center text-base font-medium italic text-body-color">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod incididunt utionals labore et dolore magna
-                      aliqua. Quis lobortis scelerisque fermentum, The Neque ut
-                      etiam sit amet.
+                      "Next.js has transformed how we think about React
+                      development. It's not just a framework; it's a complete
+                      solution for building production-ready web applications
+                      with best practices built-in."
                     </p>
                     <span className="absolute left-0 top-0 z-[-1]">
                       <svg
@@ -213,7 +181,7 @@ const BlogDetailsPage = () => {
                         </defs>
                       </svg>
                     </span>
-                    <span className="absolute right-0 bottom-0 z-[-1]">
+                    <span className="absolute bottom-0 right-0 z-[-1]">
                       <svg
                         width="53"
                         height="30"
@@ -303,9 +271,11 @@ const BlogDetailsPage = () => {
                     </span>
                   </div>
                   <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    consectetur adipiscing elit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    mattis vulputate cupidatat.
+                    Implementing Next.js in your projects can significantly
+                    improve both developer productivity and application
+                    performance. The framework's opinionated structure helps
+                    maintain consistency across projects, while its flexibility
+                    allows for customization when needed.
                   </p>
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
@@ -313,9 +283,9 @@ const BlogDetailsPage = () => {
                         Popular Tags :
                       </h5>
                       <div className="flex items-center">
-                        <TagButton text="Design" />
-                        <TagButton text="Development" />
-                        <TagButton text="Info" />
+                        {blog?.popularTags.map((i) => (
+                          <TagButton text={i} />
+                        ))}
                       </div>
                     </div>
                     <div className="mb-5">
@@ -330,6 +300,126 @@ const BlogDetailsPage = () => {
                 </div>
               </div>
             </div>
+            <div className="w-full px-4 lg:w-4/12">
+              <div className="mb-10 mt-12 rounded-md bg-primary bg-opacity-5 p-6 dark:bg-opacity-5 lg:mt-0">
+                <form className="flex items-center justify-between">
+                  <input
+                    type="text"
+                    placeholder="Search articles..."
+                    className="palceholder-body-color mr-5 w-full rounded-md border border-transparent px-5 py-3 text-base font-medium text-body-color outline-none focus:border-primary dark:bg-white dark:bg-opacity-10"
+                  />
+                  <button className="flex h-[50px] w-full max-w-[50px] items-center justify-center rounded-md bg-primary text-white">
+                    <svg
+                      width="20"
+                      height="18"
+                      viewBox="0 0 20 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19.4062 16.8125L13.9375 12.375C14.9375 11.0625 15.5 9.46875 15.5 7.78125C15.5 5.75 14.7188 3.875 13.2812 2.4375C10.3438 -0.5 5.5625 -0.5 2.59375 2.4375C1.1875 3.84375 0.40625 5.75 0.40625 7.75C0.40625 9.78125 1.1875 11.6562 2.625 13.0937C4.09375 14.5625 6.03125 15.3125 7.96875 15.3125C9.875 15.3125 11.75 14.5938 13.2188 13.1875L18.75 17.6562C18.8438 17.75 18.9688 17.7812 19.0938 17.7812C19.25 17.7812 19.4062 17.7188 19.5312 17.5938C19.6875 17.3438 19.6562 17 19.4062 16.8125ZM3.375 12.3438C2.15625 11.125 1.5 9.5 1.5 7.75C1.5 6 2.15625 4.40625 3.40625 3.1875C4.65625 1.9375 6.3125 1.3125 7.96875 1.3125C9.625 1.3125 11.2812 1.9375 12.5312 3.1875C13.75 4.40625 14.4375 6.03125 14.4375 7.75C14.4375 9.46875 13.7188 11.125 12.5 12.3438C10 14.8438 5.90625 14.8438 3.375 12.3438Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </button>
+                </form>
+              </div>
+              <div className="mb-10 rounded-md bg-primary bg-opacity-5 dark:bg-opacity-10">
+                <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
+                  Related Posts
+                </h3>
+                <ul className="p-8">
+                  <li className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10">
+                    <RelatedPost
+                      title="React Performance Optimization Techniques"
+                      image="/images/brands/react.svg"
+                      slug="#"
+                      date="10 Mar 2024"
+                    />
+                  </li>
+                  <li className="mb-6 border-b border-body-color border-opacity-10 pb-6 dark:border-white dark:border-opacity-10">
+                    <RelatedPost
+                      title="TypeScript Best Practices for Web Development"
+                      image="/images/brands/typescript.svg"
+                      slug="#"
+                      date="5 Feb 2024"
+                    />
+                  </li>
+                  <li>
+                    <RelatedPost
+                      title="Building Scalable APIs with Node.js and Express"
+                      image="/images/brands/nodejs-icon.svg"
+                      slug="#"
+                      date="20 Jan 2024"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div className="mb-10 rounded-md bg-primary bg-opacity-5 dark:bg-opacity-10">
+                <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
+                  Popular Categories
+                </h3>
+                <ul className="px-8 py-6">
+                  <li>
+                    <a
+                      href="#0"
+                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      Web Development
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#0"
+                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      React.js
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#0"
+                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      Next.js
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#0"
+                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      TypeScript
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#0"
+                      className="mb-3 inline-block text-base font-medium text-body-color hover:text-primary"
+                    >
+                      API Development
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="mb-10 rounded-md bg-primary bg-opacity-5 dark:bg-opacity-10">
+                <h3 className="border-b border-body-color border-opacity-10 px-8 py-4 text-lg font-semibold text-black dark:border-white dark:border-opacity-10 dark:text-white">
+                  Popular Tags
+                </h3>
+                <div className="flex flex-wrap px-8 py-6">
+                  <TagButton text="React" />
+                  <TagButton text="Next.js" />
+                  <TagButton text="TypeScript" />
+                  <TagButton text="Node.js" />
+                  <TagButton text="API" />
+                  <TagButton text="Frontend" />
+                  <TagButton text="Backend" />
+                  <TagButton text="WebDev" />
+                </div>
+              </div>
+
+              <NewsLatterBox />
+            </div>
           </div>
         </div>
       </section>
@@ -337,4 +427,4 @@ const BlogDetailsPage = () => {
   );
 };
 
-export default BlogDetailsPage;
+export default BlogSidebarPage;

@@ -1,8 +1,14 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 const Hero = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <section
@@ -18,7 +24,14 @@ const Hero = () => {
               >
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
                   Mid-level Full-Stack Developer with{" "}
-                  <span className="text-primary">+3 Years</span> of Experience
+                  <span
+                    data-aos="zoom-in"
+                    data-aos-duration="3000"
+                    className="text-primary"
+                  >
+                    +3 Years
+                  </span>{" "}
+                  of Experience
                 </h1>
                 <p className="mb-8 text-base font-normal !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-lg md:text-xl">
                   Specialized in modern web technologies including React,
@@ -46,6 +59,9 @@ const Hero = () => {
                       "Zustand",
                     ].map((tech, index) => (
                       <span
+                        data-aos="zoom-in"
+                        data-aos-duration="500"
+                        data-aos-delay={index * 200}
                         key={index}
                         className=" flex items-center justify-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary dark:bg-primary/20"
                       >
@@ -56,16 +72,28 @@ const Hero = () => {
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <Link
+                    data-aos="zoom-in-up"
+                    data-aos-duration="1500"
+                    href="/blog"
+                    className="flex h-12 w-1/2 items-center justify-center rounded-md border border-primary/40 text-base font-semibold text-primary duration-300 ease-in-out hover:bg-primary/20 max-md:text-xs"
+                  >
+                    View blogs
+                  </Link>
+                  <Link
+                    data-aos="zoom-in-up"
+                    data-aos-duration="2000"
                     href="/contact"
-                    className="flex h-12 w-1/2 items-center justify-center  rounded-md border border-primary bg-primary text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/20"
+                    className="flex h-12 w-1/2 items-center justify-center rounded-md  border border-primary/40 bg-primary/40 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/20 max-md:text-xs"
                   >
                     Contact Me
                   </Link>
                   <Link
-                    href="/projects"
-                    className="flex h-12 w-1/2 items-center justify-center rounded-md border border-primary text-base font-semibold text-primary duration-300 ease-in-out hover:bg-primary/20"
+                    data-aos="zoom-in-up"
+                    data-aos-duration="2500"
+                    href="/pricing"
+                    className="flex h-12 w-1/2 items-center justify-center rounded-md border border-primary/40 text-base font-semibold text-primary duration-300 ease-in-out hover:bg-primary/20 max-md:text-xs"
                   >
-                    View Portfolio
+                    View pricing
                   </Link>
                 </div>
               </div>

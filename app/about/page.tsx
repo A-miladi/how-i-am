@@ -1,19 +1,20 @@
-import AboutSectionOne from '@/components/About/AboutSectionOne';
-import AboutSectionTwo from '@/components/About/AboutSectionTwo';
-import Breadcrumb from '@/components/Common/Breadcrumb';
+import AboutSectionOne from "@/components/About/AboutSectionOne";
+import AboutSectionTwo from "@/components/About/AboutSectionTwo";
+import Breadcrumb from "@/components/Common/Breadcrumb";
 
 const AboutPage = () => {
-	return (
-		<>
-			<Breadcrumb
-				pageName="About"
-				description="Welcome to Madioo, your premier provider of cutting-edge web and software solutions. With a passion for innovation and a commitment to excellence, we empower businesses and individuals to thrive in the digital age.
-        At Madioo, we understand the significance of a strong online presence in today's competitive landscape. "
-			/>
-			<AboutSectionOne />
-			<AboutSectionTwo />
-		</>
-	);
+  return (
+    <>
+      <Breadcrumb
+        pageName="About Alireza Miladi"
+        description="Experienced Full-Stack Developer specializing in modern JavaScript/TypeScript technologies. 
+  With expertise in React, Next.js, Node.js, and React Native, I create scalable web and mobile applications 
+  with focus on performance, SEO, and user experience. Passionate about AI integration and real-time applications."
+      />
+      <AboutSectionOne />
+      <AboutSectionTwo />
+    </>
+  );
 };
 
 export default AboutPage;

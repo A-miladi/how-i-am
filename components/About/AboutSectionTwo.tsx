@@ -1,4 +1,8 @@
+"use client";
 import Image from "next/image";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
 
 const experienceData = [
   {
@@ -50,6 +54,9 @@ const experienceData = [
 ];
 
 const AboutSectionTwo = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <section className="py-16 md:py-20 lg:py-28">
       <div className="container">
@@ -57,11 +64,15 @@ const AboutSectionTwo = () => {
           <div className="flex w-full px-4">
             <div className="wow fadeInUp w-full" data-wow-delay=".2s">
               <h2 className="mb-12 border-primary text-2xl font-bold text-black dark:text-white max-md:border-l-2 max-md:pl-4 md:text-3xl">
-                Senior Experience Journey
+                Mid-Level Experience Journey
               </h2>
               <div className="grid w-full gap-4 md:grid-cols-2">
                 {experienceData.map((item) => (
                   <div
+                    data-aos="fade-up"
+                    data-aos-easing="linear"
+                    data-aos-duration="500"
+                    data-aos-delay={item.id * 100}
                     key={item.id}
                     className="mb-12 border-primary pb-8 pl-6 max-md:border-b md:border-l md:pb-0"
                   >
@@ -84,6 +95,7 @@ const AboutSectionTwo = () => {
                     <div className="flex flex-wrap gap-2">
                       {item.technologies.map((tech, index) => (
                         <span
+                          data-aos-delay={index * 100}
                           key={index}
                           className="rounded-lg bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
                         >

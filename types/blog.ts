@@ -12,4 +12,8 @@ export type Blog = {
   author: Author;
   tags: string[];
   publishDate: string;
+  multiDescription: string;
+  popularCategories: string[];
+  logo: string;
+  popularTags: string[];
 };

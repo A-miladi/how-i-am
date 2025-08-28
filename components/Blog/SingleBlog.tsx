@@ -1,11 +1,30 @@
 import { Blog } from "@/types/blog";
 import Image from "next/image";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
-const SingleBlog = ({ blog }: { blog: Blog }) => {
-  const { title, image, paragraph, author, tags, publishDate } = blog;
+const SingleBlog = ({
+  blog,
+  navigateTo,
+}: {
+  blog: Blog;
+  navigateTo?: () => void;
+}) => {
+  const { title, image, paragraph, author, tags, publishDate, id } = blog;
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div
+      onClick={navigateTo}
+      data-aos="zoom-in"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+      data-aos-delay={id * 50}
       className="wow fadeInUp relative cursor-pointer overflow-hidden rounded-md bg-white shadow-xl transition-all duration-200 hover:scale-105 hover:shadow-[rgba(1,1,1,0.5)] dark:bg-dark max-md:mb-4"
       data-wow-delay=".1s"
     >

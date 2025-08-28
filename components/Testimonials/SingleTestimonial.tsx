@@ -1,5 +1,9 @@
 import { Testimonial } from "@/types/testimonial";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const starIcon = (
   <svg width="18" height="16" viewBox="0 0 18 16" className="fill-current">
     <path d="M9.09815 0.361679L11.1054 6.06601H17.601L12.3459 9.59149L14.3532 15.2958L9.09815 11.7703L3.84309 15.2958L5.85035 9.59149L0.595291 6.06601H7.0909L9.09815 0.361679Z" />
@@ -7,7 +11,7 @@ const starIcon = (
 );
 
 const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
-  const { star, name, image, content, designation } = testimonial;
+  const { star, name, image, content, designation, id } = testimonial;
 
   const ratingIcons: JSX.Element[] = Array(star)
     .fill(null)
@@ -17,8 +21,18 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
       </span>
     ));
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="w-full cursor-pointer transition-all duration-200 hover:scale-105">
+    <div
+      data-aos="zoom-in"
+      data-aos-easing="linear"
+      data-aos-duration="500"
+      data-aos-delay={id * 100}
+      className="w-full cursor-pointer transition-all duration-200 hover:scale-105"
+    >
       <div
         className="wow fadeInUp flex h-full w-full flex-col justify-between rounded-md bg-white p-8 shadow-one backdrop-blur-sm dark:bg-[#1D2144]/40 lg:px-5 xl:px-8"
         data-wow-delay=".1s"
