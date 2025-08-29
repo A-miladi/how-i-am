@@ -55,7 +55,10 @@ const experienceData = [
 
 const AboutSectionTwo = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
   return (
     <section className="py-16 md:py-20 lg:py-28">

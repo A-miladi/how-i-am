@@ -7,7 +7,10 @@ import { useEffect } from "react";
 
 const Hero = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
   return (
     <>

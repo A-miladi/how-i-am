@@ -15,7 +15,10 @@ const SingleBlog = ({
   const { title, image, paragraph, author, tags, publishDate, id } = blog;
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
   return (

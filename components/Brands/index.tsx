@@ -67,7 +67,6 @@ const brandsData: Brand[] = [
 ];
 
 const Brands = () => {
-  // Duplicate brands for seamless looping
   const loopedBrands = [...brandsData, ...brandsData];
 
   return (

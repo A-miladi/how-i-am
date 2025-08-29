@@ -22,7 +22,10 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
     ));
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
   return (

@@ -1,15 +1,16 @@
 "use client";
-import blogData from "@/data/blogData";
-import RelatedPost from "@/components/Blog/RelatedPost";
+import ErrorPage from "@/app/error/page";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import NewsLatterBox from "@/components/Contact/NewsLatterBox";
+import ResearchBlog from "@/components/research-blog";
+import blogData from "@/data/blogData";
+import { Blog } from "@/types/blog";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import ErrorPage from "@/app/error/page";
-import { Blog } from "@/types/blog";
-import ResearchBlog from "@/components/research-blog";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const BlogSidebarPage = () => {
   const params = useParams() as { id: string };
@@ -20,6 +21,7 @@ const BlogSidebarPage = () => {
   useEffect(() => {
     const foundBlog = blogData.find((item) => item.id === Number(id));
     setBlog(foundBlog || null);
+    AOS.init();
   }, [id]);
 
   if (!blog) {
@@ -33,14 +35,28 @@ const BlogSidebarPage = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-8/12">
               <div>
-                <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+                <h2
+                  data-aos="fade-in"
+                  data-aos-duration="2000"
+                  className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight"
+                >
                   {blog.title}
                 </h2>
-                <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
+                <div
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  data-aos-delay="100"
+                  className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10"
+                >
                   <div className="flex flex-wrap items-center">
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
-                        <div className="relative h-10 w-10 overflow-hidden rounded-full">
+                        <div
+                          data-aos="fade-down"
+                          data-aos-duration="2500"
+                          data-aos-delay="500"
+                          className="relative h-10 w-10 overflow-hidden rounded-full"
+                        >
                           <Image
                             src={"/images/blog/me.png"}
                             alt={blog.author.name}
@@ -51,13 +67,23 @@ const BlogSidebarPage = () => {
                         </div>
                       </div>
                       <div className="w-full">
-                        <h4 className="mb-1 text-base font-medium text-body-color">
+                        <h4
+                          data-aos="fade-down"
+                          data-aos-delay="500"
+                          data-aos-duration="2000"
+                          className="mb-1 text-base font-medium text-body-color"
+                        >
                           By <span>{blog.author.name}</span>
                         </h4>
                       </div>
                     </div>
                     <div className="mb-5 flex items-center">
-                      <p className="mr-5 flex items-center text-base font-medium text-body-color">
+                      <p
+                        data-aos="fade-down"
+                        data-aos-duration="2000"
+                        data-aos-delay="400"
+                        className="mr-5 flex items-center text-base font-medium text-body-color"
+                      >
                         <span className="mr-3">
                           <svg
                             width="15"
@@ -78,7 +104,12 @@ const BlogSidebarPage = () => {
                         </span>
                         {blog.publishDate}
                       </p>
-                      <p className="mr-5 flex items-center text-base font-medium text-body-color">
+                      <p
+                        data-aos="fade-down"
+                        data-aos-duration="2000"
+                        data-aos-delay="300"
+                        className="mr-5 flex items-center text-base font-medium text-body-color"
+                      >
                         <span className="mr-3">
                           <svg
                             width="18"
@@ -93,7 +124,12 @@ const BlogSidebarPage = () => {
                         </span>
                         127
                       </p>
-                      <p className="flex items-center text-base font-medium text-body-color">
+                      <p
+                        data-aos="fade-down"
+                        data-aos-duration="2000"
+                        data-aos-delay="200"
+                        className="flex items-center text-base font-medium text-body-color"
+                      >
                         <span className="mr-3">
                           <svg
                             width="20"
@@ -109,7 +145,12 @@ const BlogSidebarPage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="mb-5">
+                  <div
+                    data-aos="fade-down"
+                    data-aos-delay="500"
+                    data-aos-duration="2500"
+                    className="mb-5"
+                  >
                     <a
                       href="#0"
                       className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
@@ -119,11 +160,21 @@ const BlogSidebarPage = () => {
                   </div>
                 </div>
                 <div>
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                  <p
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                    data-aos-duration="3000"
+                    className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed"
+                  >
                     {blog.paragraph}
                   </p>
                   <div className="mb-10 w-full overflow-hidden rounded">
-                    <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
+                    <div
+                      data-aos="fade-up"
+                      data-aos-delay="400"
+                      data-aos-duration="3000"
+                      className="relative aspect-[97/60] w-full sm:aspect-[97/44]"
+                    >
                       <Image
                         src={blog.image || "/images/blog/blog-details-01.jpg"}
                         alt={blog.title}
@@ -133,7 +184,12 @@ const BlogSidebarPage = () => {
                       />
                     </div>
                   </div>
-                  <p className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                  <p
+                    data-aos="fade-up"
+                    data-aos-delay="500"
+                    data-aos-duration="3000"
+                    className="mb-8 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed"
+                  >
                     {blog.multiDescription}
                   </p>
 

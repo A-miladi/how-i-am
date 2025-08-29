@@ -13,7 +13,10 @@ const checkIcon = (
 
 const AboutSectionOne = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
   }, []);
 
   const listItems = [
