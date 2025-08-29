@@ -13,7 +13,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="relative z-10 overflow-hidden pb-16 pt-20 md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="container">
           <div className=" flex w-full flex-row flex-wrap items-center justify-between">
@@ -22,7 +22,7 @@ const Hero = () => {
                 className="wow fadeInUp max-w-[700px] text-left"
                 data-wow-delay=".2s"
               >
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                <h1 className="mb-5 text-2xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
                   Mid-level Full-Stack Developer with{" "}
                   <span
                     data-aos="zoom-in"
@@ -60,8 +60,9 @@ const Hero = () => {
                     ].map((tech, index) => (
                       <span
                         data-aos="zoom-in"
+                        data-aos-easing="linear"
                         data-aos-duration="500"
-                        data-aos-delay={index * 200}
+                        data-aos-delay={index * 100}
                         key={index}
                         className=" flex items-center justify-center rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary dark:bg-primary/20"
                       >

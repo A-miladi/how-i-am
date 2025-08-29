@@ -1,7 +1,7 @@
 "use client";
 
 import SingleBlog from "@/components/Blog/SingleBlog";
-import blogData from "@/components/Blog/blogData";
+import blogData from "@/data/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";

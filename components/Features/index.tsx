@@ -12,7 +12,7 @@ const Features = () => {
             <h2 className="border-l-2 border-primary pl-4 text-3xl font-extrabold">
               Technical Expertise
             </h2>
-            <p className="w-1/2 pt-4 text-white text-opacity-40">
+            <p className="pt-4 text-white text-opacity-40 md:w-1/2">
               With 3+ years of experience in modern web development, I
               specialize in full-stack JavaScript/TypeScript technologies, AI
               integration, and building scalable applications.
@@ -29,7 +29,7 @@ const Features = () => {
             <h3 className="mb-8 text-2xl font-bold text-black dark:text-white">
               Additional Technologies & Tools
             </h3>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="grid grid-cols-2 flex-wrap justify-center gap-3 md:flex">
               {[
                 "TypeScript",
                 "Next.js",
@@ -55,6 +55,10 @@ const Features = () => {
                 "GSAP",
               ].map((tech, index) => (
                 <span
+                  data-aos="zoom-in"
+                  data-aos-easing="linear"
+                  data-aos-duration="500"
+                  data-aos-delay={index * 100}
                   key={index}
                   className="rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-white"
                 >

@@ -1,9 +1,9 @@
 export default function Head() {
   return (
     <>
-      <title>Madioo</title>
+      <title>Alireza Miladi</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Madioo" />
+      <meta name="description" content="Alireza miladi" />
       <link rel="icon" href="/images/favicon.ico" />
     </>
   );
